@@ -11,24 +11,23 @@
 </head>
 
 <body>
-  <main class="main">
+  <main id="root">
     <h1>BATTLESHIP!!</h1>
     <div class="in-wrapper">
-      <div class="status">
-        <div class="pl-status">
-          <strong>Player 1</strong>
-          <label class="game" id="pl-hits"></label>
-        </div>
-        <div class="cp-status">
-          <strong>Computer</strong>
-          <label class="game" id="cp-hits"></label>
-        </div>
-      </div>
+
       <div class="main-board">
         <div class="player">
+          <div class="pl-status">
+            <strong>Player 1</strong>
+            <label class="game" id="pl-hits"></label>
+          </div>
           <div class="board board__player"></div>
         </div>
         <div class="computer">
+          <div class="cp-status">
+            <strong>Computer</strong>
+            <label class="game" id="cp-hits"></label>
+          </div>
           <div class="board board__computer"></div>
         </div>
         <div class="invalid hide">

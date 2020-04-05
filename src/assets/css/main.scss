@@ -1,21 +1,42 @@
 @import "reset.css";
 body {
   font-family: "Righteous", cursive;
+  height: 100vh;
+  width: 100vw;
+
+  font-size: 14px;
+
+  @media screen and (max-width: 1024px) and (min-width: 750px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 10px;
+  }
 }
 
-main {
+#root {
   background-image: linear-gradient(to right, #4baea0, #278d7f);
-  height: 100vh;
-  h1 {
-    height: 140px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 80px;
+  height: 100%;
+  width: 100%;
+  min-width: 290px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  & > h1 {
+    top: 1rem;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    font-size: 4.5em;
+    height: 20%;
     color: antiquewhite;
   }
 }
 .in-wrapper {
+  width: 100%;
+  height: 80%;
   animation: hell 2s ease-in 0s;
   @keyframes hell {
     0% {
@@ -33,14 +54,54 @@ main {
   }
 }
 .main-board {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: relative;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .player,
+  .computer {
+    height: 400px;
+    width: 400px;
+    position: relative;
+
+    @media screen and (max-width: 1024px) and (min-width: 750px) {
+      height: 350px;
+      width: 350px;  
+    }
+
+    @media screen and (max-width: 750px) {
+      height: 200px;
+      width: 90%;  
+    }
+  }
+
+  .player {
+    @media screen and (max-width: 750px) {
+      margin-bottom: 20%;  
+    }
+  }
+
+  .computer {
+    @media screen and (max-width: 750px) {
+      margin-bottom: 5%;  
+    }
+  }
 }
 .board {
+  height: 100%;
+  width: 100%;
   .row {
     display: flex;
+    height: calc(100% / 10);
+    width: 100%;
   }
 
   .col {
@@ -49,9 +110,7 @@ main {
     align-items: center;
     border: 1px solid black;
     margin: 0.5px;
-    height: 30px;
-    width: 30px;
-    padding: 10px;
+    width: calc(100% / 10);
     border-radius: 4px;
     background-color: #fda77f;
     transition: 0.8s;
@@ -112,7 +171,7 @@ main {
       background-color: transparent;
     }
     100% {
-      transfor: scale(1);
+      transform: scale(1);
       opacity: 1;
     }
   }
@@ -123,26 +182,32 @@ main {
   }
 }
 
-.status {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 20vh;
+
   .pl-status,
   .cp-status {
+    position: absolute;
+    top: -20%;
+    left: calc(50% - 6.5rem);
     border: 6px solid #f2eee5;
     background-image: linear-gradient(to right, #979797, #c5bfbf);
     border-radius: 50px;
     width: 13rem;
-    height: 80px;
+    height: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     color: #f2eee5;
-    font-size: 25px;
+    font-size: 1.5em;
+    @media screen and (max-width: 750px) {
+      top: -25%;
+      left: 0; 
+      width: 100%;
+      height: 2rem;
+      flex-direction: row;
+    }
   }
-}
+
 
 .playerWin,
 .computerWin {
@@ -162,16 +227,15 @@ main {
       opacity: 1;
     }
   }
-  margin-top: 140px;
-  height: 40vh;
+  height: 400px;
   background-image: linear-gradient(to right, #3413f0, #634ce7);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h1 {
+  & > h1 {
     color: antiquewhite;
-    font-size: 65px;
+    font-size: 4em;
   }
   button {
     padding: 30px;
